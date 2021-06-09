@@ -1,7 +1,7 @@
 const app = require('../app')
 const axios = require('axios')
 
-function loopResturant(resturant) {
+async function loopResturant(resturant) {
     console.log(`arg was => ${resturant}`);
     const response = await axios.get(`https://restaurant-api.wolt.com/v3/venues/slug/${resturant}`)
     const online = response.results[0].online
@@ -22,7 +22,7 @@ function loopResturant(resturant) {
 
 app.get('/api/wolt', async (req, res) => {
     const rest = req.query.resturant
-    loopResturant(rest)
+    setTimeout(loopResturant, 1000, rest)
     return res.status(200).send({ "resturant": rest, "message": "Watcher setted"})
 })
 
