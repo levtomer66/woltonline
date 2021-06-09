@@ -22,6 +22,10 @@ async function loopResturant(resturant) {
 
 app.get('/api/wolt', async (req, res) => {
     const rest = req.query.resturant
+    const response = await axios.get(`https://restaurant-api.wolt.com/v3/venues/slug/${rest}`)
+    if (response.status == "ERR") {
+        return res.status(400).send({"message": `failed to set for resturant: ${rest}`})
+    }
     setTimeout(loopResturant, 1000, rest)
     return res.status(200).send({ "resturant": rest, "message": "Watcher setted"})
 })
