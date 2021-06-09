@@ -16,7 +16,7 @@
     ],
     "build": {
         "env": {
-            "API_URL": "https://wolt.vercel.app/"
+            "API_URL": "https://woltonline.vercel.app/"
             
         }
     },
