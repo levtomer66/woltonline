@@ -3,7 +3,7 @@
     <input type="text" placeholder="Paste URL Here!" v-model="resturant" />
     <button @click="setRestu">Send To Watcher </button>
     <div>
-      {{ json_obj }}
+      {{ json_obj.message }}
     </div>
   </div>
 </template>
